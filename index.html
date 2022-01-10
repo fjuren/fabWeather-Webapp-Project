@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Is your page mobile friendly? https://search.google.com/test/mobile-friendly -->
+
+<head>
+  <meta charset="utf-8">
+  <title>weatherNet</title>
+  <!-- note using JavaScrip 4.6 -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <!-- CSS StyleSheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- type text/css is required for server -->
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <!-- favicon -->
+  <link rel="icon" href="images/favicon.ico">
+  <!-- fontawesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+
+<body>
+
+  <section class="colored-section" id="title">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <img class="title-img" src="images/apple-touch-icon-removebg-preview.png" alt="">
+        <a class="navbar-brand" href="">weatherNet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Download</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<!-- END OF HEADER.EJS -->
+
+      <!-- Title -->
+
+      <div class="row">
+        <div class="title-left col-lg-6 col-md-12">
+          <h1 class="big-heading">Download WeatherNet today!</h1>
+          <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-apple"></i> Download</button>
+          <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-google-play"></i> Download</button>
+        </div>
+
+        <div class="title-right col-lg-6 col-md-12">
+          <img class="title-image" src="images/IPhoneWeather.png" alt="iphone-mockup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- today -->
+
+  <section class="white-section" id="weather">
+
+    <div class="form-group">
+      <form class="citySearch" action="/" method="post">
+        <label for="cityInput"> <h1>Enter city Name:</h1></label>
+        <input id="cityInput" class="form-control-lg" type="text" name="cityName">
+        <button type="submit" class="btn btn-outline-dark">Go</button>
+      </form>
+    </div>
+    <div class="today">
+      <h2 class="big-heading">Today</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <i class="fas fa-check-circle checkmark-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+        <div class="col-lg-4">
+          <i class="fas fa-bullseye bullseye-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+        <div class="col-lg-4">
+          <i class="fas fa-heart heart-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+      </div>
+    </div>
+    <div class="forecast">
+      <h2 class="big-heading">Forecast</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <i class="fas fa-check-circle checkmark-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+        <div class="col-lg-4">
+          <i class="fas fa-bullseye bullseye-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+        <div class="col-lg-4">
+          <i class="fas fa-heart heart-icon"></i>
+          <h3 class="today-h3">[________]</h3>
+          <p class="today-p">[________]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <!-- Pricing -->
+
+  <section class="white-section" id="pricing">
+
+    <h2 class="section-heading">Payment plans</h2>
+    <p>Simple and affordable price plans.</p>
+
+    <div class="row">
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Free</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">$0 / mo</h2>
+            <p>No account needed</p>
+            <p>Search any location</p>
+            <p>Limited to 10 searches per day</p>
+            <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Pro</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">$5 / mo</h2>
+            <p>Save a location to your favourites</p>
+            <p>No ads to worry about</p>
+            <p>Email support</p>
+            <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-column col-lg-4 col-md">
+        <div class="card">
+          <div class="card-header">
+            <h3>Elite</h3>
+          </div>
+          <div class="card-body">
+            <h2 class="price-text">$10 / mo</h2>
+            <p>Save unlimited locations</p>
+            <p>Personalized settings and no ads</p>
+            <p>Priority phone support</p>
+            <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Testimonials -->
+
+  <section class="colored-section" id="testimonials">
+
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active container-fluid">
+
+          <h2 class="testimonial-text">I love this app! It has a very simple UI </h2>
+          <em>Emily Cheerie, 32</em>
+
+        </div>
+        <div class="carousel-item container-fluid">
+          <h2 class="testimonial-text">Saving locations to my favourites is great!</h2>
+          <em>Joe Samson, 26</em>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Press -->
+
+  <section class="colored-section" id="press">
+    <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
+    <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
+    <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
+    <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
+
+  </section>
+
+
+  <!-- Call to Action -->
+
+  <section class="colored-section" id="cta">
+    <div class="container-fluid">
+
+      <h3 class="big-heading">Check it out!</h3>
+      <button type="button" class="btn btn-dark btn-lg download-button-cta"><i class="fab fa-apple"></i>Download</button>
+      <button type="button" class="btn btn-dark btn-lg download-button-cta"><i class="fab fa-google-play"></i> Download</button>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+<!-- START OF FOOTER.EJS -->
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid">
+      <i class="footer-icon fab fa-twitter"></i>
+      <i class="footer-icon fab fa-instagram"></i>
+      <i class="footer-icon far fa-envelope"></i>
+      <p>© Copyright 2021 weatherNet</p>
+    </div>
+
+
+  </footer>
+
+</body>
+
+</html>

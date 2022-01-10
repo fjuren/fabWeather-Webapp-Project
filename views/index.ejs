@@ -1,0 +1,205 @@
+<%- include("partials/header") -%>
+<!-- today -->
+
+<section class="white-section" id="weather">
+
+  <div class="form-group">
+    <form class="citySearch" action="/" method="post">
+      <input id="cityInput" class="form-control-lg" type="text" name="cityName" placeholder="Enter City Name">
+      <button type="submit" class="btn btn-outline-dark">Go</button>
+    </form>
+  </div>
+
+  <div class="">
+    <h1 class="big-heading"> <%= cityEJS %> </h1>
+  </div>
+
+  <div class="container-fluid weather-fields">
+    <div class="row">
+      <div class="col-lg-4">
+        <h1>Today</h1>
+        <img src="<%= iconTodayEJS %>" alt="">
+        <h3> <%= weatherDescTodayEJS %> </h3>
+        <h1> <%= tempTodayEJS %>°C </h1>
+        <h4> Low: <%= tempMinTodayEJS %>°C </h4>
+        <h4> High: <%= tempMaxTodayEJS %>°C </h4>
+        <h4> Feels Like: <%= feelsLikeTodayEJS %>°C </h4>
+      </div>
+    </div>
+      <!-- <div class="col-lg-8">
+        <h1>Hourly Forecast</h1>
+      </div> -->
+    <h1>Daily Forecast</h1>
+    <div class="row">
+      <div class="col-lg-2">
+        <h3> <%= day1EJS %> </h3>
+        <img src="<%= day1IconEJS %>" alt="">
+        <h4> <%= day1TempMinEJS %></h4>
+        <h4> <%= day1TempMaxEJS %></h4>
+        <h5> <%= day1DescEJS %></h5>
+      </div>
+      <div class="col-lg-2">
+        <h3> <%= day2EJS %> </h3>
+        <img src="<%= day2IconEJS %>" alt="">
+        <h4> <%= day2TempMinEJS %></h4>
+        <h4> <%= day2TempMaxEJS %></h4>
+        <h5> <%= day2DescEJS %></h5>
+      </div>
+      <div class="col-lg-2">
+        <h3> <%= day3EJS %> </h3>
+        <img src="<%= day3IconEJS %>" alt="">
+        <h4> <%= day3TempMinEJS %></h4>
+        <h4> <%= day3TempMaxEJS %></h4>
+        <h5> <%= day3DescEJS %></h5>
+      </div>
+      <div class="col-lg-2">
+        <h3> <%= day4EJS %> </h3>
+        <img src="<%= day4IconEJS %>" alt="">
+        <h4> <%= day4TempMinEJS %></h4>
+        <h4> <%= day4TempMaxEJS %></h4>
+        <h5> <%= day4DescEJS %></h5>
+      </div>
+      <div class="col-lg-2">
+        <h3> <%= day5EJS %> </h3>
+        <img src="<%= day5IconEJS %>" alt="">
+        <h4> <%= day5TempMinEJS %></h4>
+        <h4> <%= day5TempMaxEJS %></h4>
+        <h5> <%= day5DescEJS %></h5>
+      </div>
+    </div>
+    <hr>
+      <h2>Try out the app if you like what you see!</h2>
+  </div>
+</section>
+
+
+
+<!-- phone ad -->
+<section class="colored-section" id="phoneAd">
+  <div class="container-fluid">
+<div class="row">
+  <div class="phone-ad-left col-lg-6 col-md-12">
+    <h1 class="big-heading">Download WeatherNet today!</h1>
+    <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-apple"></i> Download</button>
+    <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-google-play"></i> Download</button>
+    <!-- https://fontawesome.com/ -->
+  </div>
+
+  <div class="title-right col-lg-6 col-md-12">
+    <img class="phone-ad" src="images/IPhoneWeather.png" alt="iphone-mockup">
+    <!-- width="300" height="600" -->
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Pricing -->
+
+<section class="white-section" id="pricing">
+
+  <h2 class="section-heading">Payment plans</h2>
+  <p>Simple and affordable price plans.</p>
+
+  <!-- <div class="card-deck"> -->
+
+  <div class="row">
+
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3>Free</h3>
+        </div>
+        <div class="card-body">
+          <h2 class="price-text">$0 / yr</h2>
+          <p>No account needed</p>
+          <p>Search any location</p>
+          <p>Limited to 10 searches per day</p>
+          <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-column col-lg-4 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3>Pro</h3>
+        </div>
+        <div class="card-body">
+          <h2 class="price-text">$5 / yr</h2>
+          <p>Save a location to your favourites</p>
+          <p>No ads to worry about</p>
+          <p>Email support</p>
+          <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-column col-lg-4 col-md">
+      <div class="card">
+        <div class="card-header">
+          <h3>Elite</h3>
+        </div>
+        <div class="card-body">
+          <h2 class="price-text">$10 / yr</h2>
+          <p>Save unlimited locations</p>
+          <p>Personalized settings with no ads</p>
+          <p>Priority phone support</p>
+          <button type="button" class="btn btn-block btn-lg btn-dark">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Testimonials -->
+
+<section class="colored-section" id="testimonials">
+
+  <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active container-fluid">
+
+        <h2 class="testimonial-text">I love this app! It has a very simple UI </h2>
+        <em>Emily Cheerie, 32</em>
+
+      </div>
+      <div class="carousel-item container-fluid">
+        <h2 class="testimonial-text">Saving locations to my favourites is great!</h2>
+        <em>Joe Samson, 26</em>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+</section>
+
+<!-- Press -->
+
+<section class="colored-section" id="press">
+  <img class="press-logo" src="images/techcrunch.png" alt="tc-logo">
+  <img class="press-logo" src="images/tnw.png" alt="tnw-logo">
+  <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo">
+  <img class="press-logo" src="images/mashable.png" alt="mashable-logo">
+
+</section>
+
+
+<!-- Call to Action -->
+
+<section class="colored-section" id="cta">
+  <div class="container-fluid">
+
+    <h3 class="big-heading">Check it out!</h3>
+    <button type="button" class="btn btn-dark btn-lg download-button-cta"><i class="fab fa-apple"></i>Download</button>
+    <button type="button" class="btn btn-dark btn-lg download-button-cta"><i class="fab fa-google-play"></i> Download</button>
+
+  </div>
+
+</section>
+
+
+<%- include("partials/footer") -%>
