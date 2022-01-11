@@ -197,7 +197,7 @@ app.post('/', function(req, res) {
           // -------------------- DAILY ------------------------
           const oneCallDailyData = JSON.parse(chunks);
           const dayData = oneCallDailyData.daily;
-          console.log(dayData);
+          // console.log(dayData);
 
           const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           const dailyDays = []
