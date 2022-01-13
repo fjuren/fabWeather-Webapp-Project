@@ -64,7 +64,7 @@ app.get('/', function(req, res) {
           const lon = weatherData.coord.lon;
 
           const city = cityIP
-          const oneCallDaily = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=' + units + '&appid=' + apiKey
+          const oneCallDaily = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely' + '&units=' + units + '&appid=' + apiKey
 
 
           // -------------------- OPENWEATHER ONE CALL --------------------------
@@ -78,9 +78,42 @@ app.get('/', function(req, res) {
 
               // -------------------- DAILY ------------------------
               const oneCallDailyData = JSON.parse(chunks);
+              const timezoneOffset = oneCallDailyData.timezone_offset
+              const hourly = oneCallDailyData.hourly;
+              // console.log(hourly)
+              const dailyHours_timezone = []
+              const dailyHours_desc = []
+              const dailyHours_icon = []
+
+
+              for (let h = 1; h< 9; h++) {
+                const hourlyConvert_timezone = new Date((hourly[h].dt+timezoneOffset) * 1000);
+                const hours_timezone = hourlyConvert_timezone.getUTCHours();
+
+                if (hours_timezone == 0) {
+                  dailyHours_timezone.push(12+"am")
+                } else if (hours_timezone > 12) {
+                    let hours_timezoneShift = hours_timezone - 12;
+                    dailyHours_timezone.push(hours_timezoneShift+"pm")
+                  } else if (hours_timezone == 12) {
+                    dailyHours_timezone.push(12+"pm");
+                  } else {
+                    dailyHours_timezone.push(hours_timezone+"am")
+                  }
+                dailyHours_desc.push(hourly[h].weather[0].description);
+                const hourly_icon = hourly[h].weather[0].icon;
+                const hourly_iconImg = "http://openweathermap.org/img/wn/" + hourly_icon + "@2x.png";
+                dailyHours_icon.push(hourly_iconImg);
+              };
+              // console.log(dailyHours_timezone);
               const dayData = oneCallDailyData.daily;
               // console.log(dayData);
 
+              // Parse hourly weather data
+              // const hours =
+
+
+              // Parse daily weather data
               const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
               const dailyDays = []
               const dailyDesc = []
@@ -102,7 +135,7 @@ app.get('/', function(req, res) {
                 dailyTempMax.push(tMax);
               }
 
-              res.render('index.ejs', {
+              res.render("index.ejs", {
                 // Current Day
                 cityEJS: city,
                 tempTodayEJS: tempToday,
@@ -112,6 +145,33 @@ app.get('/', function(req, res) {
                 iconTodayEJS: iconToday,
                 weatherDescTodayEJS: weatherDescToday,
                 error: null,
+                  // hourly forecast (8hrs)
+                hour1EJS: dailyHours_timezone[0],
+                hour2EJS: dailyHours_timezone[1],
+                hour3EJS: dailyHours_timezone[2],
+                hour4EJS: dailyHours_timezone[3],
+                hour5EJS: dailyHours_timezone[4],
+                hour6EJS: dailyHours_timezone[5],
+                hour7EJS: dailyHours_timezone[6],
+                hour8EJS: dailyHours_timezone[7],
+                // hourly weather description
+                hour1DescEJS: dailyHours_desc[0],
+                hour2DescEJS: dailyHours_desc[1],
+                hour3DescEJS: dailyHours_desc[2],
+                hour4DescEJS: dailyHours_desc[3],
+                hour5DescEJS: dailyHours_desc[4],
+                hour6DescEJS: dailyHours_desc[5],
+                hour7DescEJS: dailyHours_desc[6],
+                hour8DescEJS: dailyHours_desc[7],
+                // hourly weather icon
+                iconHour1EJS: dailyHours_icon[0],
+                iconHour2EJS: dailyHours_icon[1],
+                iconHour3EJS: dailyHours_icon[2],
+                iconHour4EJS: dailyHours_icon[3],
+                iconHour5EJS: dailyHours_icon[4],
+                iconHour6EJS: dailyHours_icon[5],
+                iconHour7EJS: dailyHours_icon[6],
+                iconHour8EJS: dailyHours_icon[7],
                 // daily forecast
                 day1EJS: dailyDays[0],
                 day2EJS: dailyDays[1],
@@ -196,6 +256,37 @@ app.post('/', function(req, res) {
 
           // -------------------- DAILY ------------------------
           const oneCallDailyData = JSON.parse(chunks);
+          const timezoneOffset = oneCallDailyData.timezone_offset
+          const hourly = oneCallDailyData.hourly;
+          // console.log(hourly)
+          const dailyHours_timezone = []
+          const dailyHours_desc = []
+          const dailyHours_icon = []
+
+          for (let h = 1; h< 9; h++) {
+            const hourlyConvert_timezone = new Date((hourly[h].dt+timezoneOffset) * 1000);
+
+            const hours_timezone = hourlyConvert_timezone.getUTCHours();
+
+            if (hours_timezone == 0) {
+              dailyHours_timezone.push(12+"am")
+            } else if (hours_timezone > 12) {
+                let hours_timezoneShift = hours_timezone - 12;
+                dailyHours_timezone.push(hours_timezoneShift+"pm")
+              } else if (hours_timezone == 12) {
+                dailyHours_timezone.push(12+"pm");
+              } else {
+                dailyHours_timezone.push(hours_timezone+"am")
+              }
+              dailyHours_desc.push(hourly[h].weather[0].description);
+              const hourly_icon = hourly[h].weather[0].icon;
+              const hourly_iconImg = "http://openweathermap.org/img/wn/" + hourly_icon + "@2x.png";
+              dailyHours_icon.push(hourly_iconImg);
+          };
+
+          // console.log(dailyHours_timezone);
+
+
           const dayData = oneCallDailyData.daily;
           // console.log(dayData);
 
@@ -230,16 +321,39 @@ app.post('/', function(req, res) {
             iconTodayEJS: iconToday,
             weatherDescTodayEJS: weatherDescToday,
             error: null,
+            // hourly forecast (8hrs)
+            hour1EJS: dailyHours_timezone[0],
+            hour2EJS: dailyHours_timezone[1],
+            hour3EJS: dailyHours_timezone[2],
+            hour4EJS: dailyHours_timezone[3],
+            hour5EJS: dailyHours_timezone[4],
+            hour6EJS: dailyHours_timezone[5],
+            hour7EJS: dailyHours_timezone[6],
+            hour8EJS: dailyHours_timezone[7],
+            // hourly weather description
+            hour1DescEJS: dailyHours_desc[0],
+            hour2DescEJS: dailyHours_desc[1],
+            hour3DescEJS: dailyHours_desc[2],
+            hour4DescEJS: dailyHours_desc[3],
+            hour5DescEJS: dailyHours_desc[4],
+            hour6DescEJS: dailyHours_desc[5],
+            hour7DescEJS: dailyHours_desc[6],
+            hour8DescEJS: dailyHours_desc[7],
+            // hourly weather icon
+            iconHour1EJS: dailyHours_icon[0],
+            iconHour2EJS: dailyHours_icon[1],
+            iconHour3EJS: dailyHours_icon[2],
+            iconHour4EJS: dailyHours_icon[3],
+            iconHour5EJS: dailyHours_icon[4],
+            iconHour6EJS: dailyHours_icon[5],
+            iconHour7EJS: dailyHours_icon[6],
+            iconHour8EJS: dailyHours_icon[7],
             // daily forecast
             day1EJS: dailyDays[0],
             day2EJS: dailyDays[1],
             day3EJS: dailyDays[2],
             day4EJS: dailyDays[3],
             day5EJS: dailyDays[4],
-            // hourly weather description
-
-            // hourly weather icon
-
             // daily weather description
             day1DescEJS: dailyDesc[0],
             day2DescEJS: dailyDesc[1],
