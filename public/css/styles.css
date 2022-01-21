@@ -3,29 +3,30 @@ body {
   text-align: center;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat-Bold", sans-serif;
   line-height: 1.5;
 }
 
+/* Border Control */
+
+/* .weather-section {
+  border-style:solid;
+  border-color:#E8E8E8;
+} */
+
 /* HEADINGS */
 
 .big-heading {
   font-family: "Montserrat-Black";
-  font-size: 3.5rem;
+  font-size: 3rem;
+  font-weight: bold;
   line-height: 1.5;
 }
 
 .section-heading {
   font-size: 3rem;
   line-height: 1.5;
-}
-
-/* CONTAINERS */
-
-.container-fluid {
-  padding: 7% 15%;
 }
 
 /* TITLE */
@@ -42,32 +43,37 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
-.container-fluid {
-  padding: 3% 15% 7%;
-}
-
 #phoneAd .container-fluid {
   padding: 3% 15% 7%;
 }
 
 .title-img {
   width: 100px;
+  height: 90px;
 }
 
 /* .Navigation Bar */
 .container-nav {
-  padding: 3% 15% 0%;
+  padding: 0% 3% 0%;
 }
 
 .navbar {
   padding-left: 0;
-  padding-bottom: 4.5rem;
 }
 
 .navbar-brand {
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
+}
+
+@media only screen and (max-width: 991px){
+  .navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 1.7rem;
+  }
+  .
 }
 
 .nav-item {
@@ -84,12 +90,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 5% 3% 5% 0;
 }
 
-
-
 .phone-ad-left {
   padding-bottom:50px;
 }
-
 
 /* Title Image */
 @media only screen and (min-width: 1334px) {
@@ -102,8 +105,17 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     height: auto;
   }
-}
 
+  .mydivs {
+    padding: 10px 0 0 0;
+  }
+
+  .testimonial-text {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+
+}
 
 @media only screen and (max-width: 1333px) and (min-width: 992px){
   #phoneAd {
@@ -117,9 +129,19 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     height: auto;
   }
+
+  .mydivs {
+    padding: 10px 0 0 0;
+  }
+
+  .press-logo {
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
 }
 
 @media only screen and (max-width: 991px){
+
   #phoneAd {
     text-align: center;
   }
@@ -137,16 +159,34 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
   }
 
+  .mydivs {
+    padding: 10px 0 0 0;
+  }
+
+  .testimonial-text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .press-logo {
+    width: 50%;
+    margin: 20px 50px 20px 50px;
+  }
+
   /* h2 {
     text-align: center;
   } */
 }
 /* less than or equal to 991px; */
 
+/* Search Bar */
+.search-bar {
+  padding: 2% 2%
+}
 
 /* today */
 #weather {
-  padding: 2% 15% 3%;
+  padding: 2% 15% 0;
 }
 
 .weather-fields {
@@ -157,35 +197,16 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
-/* Consider collapsing icons into one css element  */
-.checkmark-icon {
-  color: #ef8172;
-  font-size: 400%;
-  margin-bottom: 1rem;
+/* weather data font sizing */
+.feels-like {
+  font-size:1rem;
 }
-.checkmark-icon:hover {
-  color:#ff4c68;
-  cursor: pointer;
+.weather-time {
+  font-style: oblique;
 }
 
-.bullseye-icon {
-  color: #ef8172;
-  font-size: 400%;
-  margin-bottom: 1rem;
-}
-.bullseye-icon:hover {
-  color:#ff4c68;
-  cursor: pointer;
-}
-
-.heart-icon {
-  color: #ef8172;
-  font-size: 400%;
-  margin-bottom: 1rem;
-}
-.heart-icon:hover {
-  color:#ff4c68;
-  cursor: pointer;
+.weather-time, .weather-temperature, .weather-description {
+  margin-bottom: 0;
 }
 
 /* dotted line break */
@@ -232,17 +253,6 @@ hr {
   color: #fff;
 }
 
-.testimonial-text {
-  font-size: 3rem;
-  line-height: 1.5;
-}
-
-.testimonial-img {
-  width: 25%;
-  border-radius: 100%;
-  margin: 20px;
-}
-
 .carousel-item {
   padding: 7% 15%;
 }
@@ -251,11 +261,6 @@ hr {
   background-color: #fff;
   padding: 2%;
 
-}
-
-.press-logo {
-  width: 15%;
-  margin: 20px 20px 50px;
 }
 
 

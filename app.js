@@ -51,11 +51,10 @@ app.get('/', function(req, res) {
 
         response.on("data", function(data) {
           const weatherData = JSON.parse(data);
-          const tempToday = weatherData.main.temp;
-
-          const tempMinToday = weatherData.main.temp_min;
-          const tempMaxToday = weatherData.main.temp_max;
-          const feelsLikeToday = weatherData.main.feels_like;
+          const tempToday = parseFloat(weatherData.main.temp).toFixed(1); // rounding text value to tenths
+          const tempMinToday = parseFloat(weatherData.main.temp_min).toFixed(1);
+          const tempMaxToday = parseFloat(weatherData.main.temp_max).toFixed(1);
+          const feelsLikeToday = parseFloat(weatherData.main.feels_like).toFixed(1);
 
           const weatherDescToday = weatherData.weather[0].description;
           const iconImgToday = weatherData.weather[0].icon;
@@ -86,6 +85,7 @@ app.get('/', function(req, res) {
               const dailyHours_icon = []
 
 
+              // timezone conversion
               for (let h = 1; h< 9; h++) {
                 const hourlyConvert_timezone = new Date((hourly[h].dt+timezoneOffset) * 1000);
                 const hours_timezone = hourlyConvert_timezone.getUTCHours();
@@ -126,8 +126,8 @@ app.get('/', function(req, res) {
                 const wDesc = oneCallDailyData.daily[i].weather[0].description;
                 const wIcon = oneCallDailyData.daily[i].weather[0].icon;
                 const iconDaily = "http://openweathermap.org/img/wn/" + wIcon + "@2x.png"
-                const tMin = oneCallDailyData.daily[i].temp.min;
-                const tMax = oneCallDailyData.daily[i].temp.max;
+                const tMin = parseFloat(oneCallDailyData.daily[i].temp.min).toFixed(1);
+                const tMax = parseFloat(oneCallDailyData.daily[i].temp.max).toFixed(1);
                 dailyDays.push(days[d.getDay()]);
                 dailyDesc.push(wDesc)
                 dailyIcon.push(iconDaily);
@@ -228,11 +228,10 @@ app.post('/', function(req, res) {
 
     response.on("data", function(data) {
       const weatherData = JSON.parse(data);
-      const tempToday = weatherData.main.temp;
-
-      const tempMinToday = weatherData.main.temp_min;
-      const tempMaxToday = weatherData.main.temp_max;
-      const feelsLikeToday = weatherData.main.feels_like;
+      const tempToday = parseFloat(weatherData.main.temp).toFixed(1); // rounding text value to tenths
+      const tempMinToday = parseFloat(weatherData.main.temp_min).toFixed(1);
+      const tempMaxToday = parseFloat(weatherData.main.temp_max).toFixed(1);
+      const feelsLikeToday = parseFloat(weatherData.main.feels_like).toFixed(1);
 
       const weatherDescToday = weatherData.weather[0].description;
       const iconImgToday = weatherData.weather[0].icon;
@@ -302,8 +301,8 @@ app.post('/', function(req, res) {
             const wDesc = oneCallDailyData.daily[i].weather[0].description;
             const wIcon = oneCallDailyData.daily[i].weather[0].icon;
             const iconDaily = "http://openweathermap.org/img/wn/" + wIcon + "@2x.png"
-            const tMin = oneCallDailyData.daily[i].temp.min;
-            const tMax = oneCallDailyData.daily[i].temp.max;
+            const tMin = parseFloat(oneCallDailyData.daily[i].temp.min).toFixed(1);
+            const tMax = parseFloat(oneCallDailyData.daily[i].temp.max).toFixed(1);
             dailyDays.push(days[d.getDay()]);
             dailyDesc.push(wDesc)
             dailyIcon.push(iconDaily);

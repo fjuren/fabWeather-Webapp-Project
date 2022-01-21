@@ -5,8 +5,12 @@
 
   <div class="form-group">
     <form class="citySearch" action="/" method="post">
-      <input id="cityInput" class="form-control-lg" type="text" name="cityName" placeholder="Enter City Name">
-      <button type="submit" class="btn btn-outline-dark">Go</button>
+      <div class="search-bar">
+        <input id="cityInput" class="form-control-lg" type="text" name="cityName" placeholder="Enter City Name">
+      </div>
+      <div class="search-button">
+        <button type="submit" class="btn btn-light-outline">Search</button>
+      </div>
     </form>
   </div>
 
@@ -14,102 +18,115 @@
     <h1 class="big-heading"> <%= cityEJS %> </h1>
   </div>
 
-  <div class="container-fluid weather-fields">
-    <div class="row">
+  <div class="container-fluid">
+    <div class="row weather-section">
       <div class="col-lg-12">
-        <h1>Current</h1>
+        <h1 class="weather-title">Current Conditions</h1>
         <img src="<%= iconTodayEJS %>" alt="">
-        <h3> <%= weatherDescTodayEJS %> </h3>
-        <h1> <%= tempTodayEJS %>°C </h1>
-        <h4> Low: <%= tempMinTodayEJS %>°C </h4>
-        <h4> High: <%= tempMaxTodayEJS %>°C </h4>
-        <h4> Feels Like: <%= feelsLikeTodayEJS %>°C </h4>
+        <h1 class="weather-temperature"> <%= tempTodayEJS %>°C </h1>
+        <h3 class="weather-description"> <%= weatherDescTodayEJS %> </h3>
+        <h4 class="weather-temperature"> Low: <%= tempMinTodayEJS %>°C </h4>
+        <h4 class="weather-temperature"> High: <%= tempMaxTodayEJS %>°C </h4>
+        <h4 class="feels-like"> Feels Like: <%= feelsLikeTodayEJS %>°C </h4>
       </div>
     </div>
-          <h1>Hourly Forecast</h1>
-    <div class="row">
 
-      <div class="col-lg-1.5">
-        <h4> <%= hour1EJS %> </h4>
+    <hr>
+
+      <h1 class="weather-title">Hourly Forecast</h1>
+    <div class="row">
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour1EJS %> </h3>
         <img src="<%= iconHour1EJS %>" alt="">
-        <h3> <%= hour1DescEJS %> </h3>
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour1DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-          <h4> <%= hour2EJS %> </h4>
-          <img src="<%= iconHour2EJS %>" alt="">
-          <h3> <%= hour2DescEJS %> </h3>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour2EJS %> </h3>
+        <img src="<%= iconHour2EJS %>" alt="">
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour2DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-          <h4> <%= hour3EJS %> </h4>
-          <img src="<%= iconHour3EJS %>" alt="">
-          <h3> <%= hour3DescEJS %> </h3>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour3EJS %> </h3>
+        <img src="<%= iconHour3EJS %>" alt="">
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour3DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-        <h4> <%= hour4EJS %> </h4>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour4EJS %> </h3>
         <img src="<%= iconHour4EJS %>" alt="">
-        <h3> <%= hour4DescEJS %> </h3>
+          <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour4DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-        <h4> <%= hour5EJS %> </h4>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour5EJS %> </h3>
         <img src="<%= iconHour5EJS %>" alt="">
-        <h3> <%= hour5DescEJS %> </h3>
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour5DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-          <h4> <%= hour6EJS %> </h4>
-          <img src="<%= iconHour6EJS %>" alt="">
-          <h3> <%= hour6DescEJS %> </h3>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour6EJS %> </h3>
+        <img src="<%= iconHour6EJS %>" alt="">
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour6DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-          <h4> <%= hour7EJS %> </h4>
-          <img src="<%= iconHour7EJS %>" alt="">
-          <h3> <%= hour7DescEJS %> </h3>
+      <div class="mydivs col-sm-5 col-md-4 offset-md-2 col-lg-3 offset-lg-0">
+        <h3 class="weather-time"> <%= hour7EJS %> </h3>
+        <img src="<%= iconHour7EJS %>" alt="">
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour7DescEJS %> </h5>
       </div>
-      <div class="col-lg-1.5">
-        <h4> <%= hour8EJS %> </h4>
+      <div class="mydivs col-sm-5 col-md-4 col-lg-3">
+        <h3 class="weather-time"> <%= hour8EJS %> </h3>
         <img src="<%= iconHour8EJS %>" alt="">
-        <h3> <%= hour8DescEJS %> </h3>
+        <h3 class="weather-temperature"> °C </h3>
+        <h5 class="weather-description"> <%= hour8DescEJS %> </h5>
       </div>
     </div>
+
+    <hr>
+
+
     <h1>Daily Forecast</h1>
-    <div class="row">
-      <div class="col-lg-2">
-        <h3> <%= day1EJS %> </h3>
+    <div class="row daily-forecast-row">
+      <div class="mydivs col-md-4 col-lg-2 offset-lg-1">
+        <h3 class="weather-time"> <%= day1EJS %> </h3>
         <img src="<%= day1IconEJS %>" alt="">
-        <h4> <%= day1TempMinEJS %></h4>
-        <h4> <%= day1TempMaxEJS %></h4>
-        <h5> <%= day1DescEJS %></h5>
+        <h4 class="weather-temperature"> <%= day1TempMinEJS %>°C</h4>
+        <h4 class="weather-temperature"> <%= day1TempMaxEJS %>°C</h4>
+        <h5 class="weather-description"> <%= day1DescEJS %></h5>
       </div>
-      <div class="col-lg-2">
-        <h3> <%= day2EJS %> </h3>
+      <div class="mydivs col-md-4 col-lg-2">
+        <h3 class="weather-time"> <%= day2EJS %> </h3>
         <img src="<%= day2IconEJS %>" alt="">
-        <h4> <%= day2TempMinEJS %></h4>
-        <h4> <%= day2TempMaxEJS %></h4>
-        <h5> <%= day2DescEJS %></h5>
+        <h4 class="weather-temperature"> <%= day2TempMinEJS %>°C</h4>
+        <h4 class="weather-temperature"> <%= day2TempMaxEJS %>°C</h4>
+        <h5 class="weather-description"> <%= day2DescEJS %></h5>
       </div>
-      <div class="col-lg-2">
-        <h3> <%= day3EJS %> </h3>
+      <div class="mydivs col-md-4 col-lg-2">
+        <h3 class="weather-time"> <%= day3EJS %> </h3>
         <img src="<%= day3IconEJS %>" alt="">
-        <h4> <%= day3TempMinEJS %></h4>
-        <h4> <%= day3TempMaxEJS %></h4>
-        <h5> <%= day3DescEJS %></h5>
+        <h4 class="weather-temperature"> <%= day3TempMinEJS %>°C</h4>
+        <h4 class="weather-temperature"> <%= day3TempMaxEJS %>°C</h4>
+        <h5 class="weather-description"> <%= day3DescEJS %></h5>
       </div>
-      <div class="col-lg-2">
-        <h3> <%= day4EJS %> </h3>
+      <div class="mydivs col-md-4 offset-md-2 col-lg-2 offset-lg-0">
+        <h3 class="weather-time"> <%= day4EJS %> </h3>
         <img src="<%= day4IconEJS %>" alt="">
-        <h4> <%= day4TempMinEJS %></h4>
-        <h4> <%= day4TempMaxEJS %></h4>
-        <h5> <%= day4DescEJS %></h5>
+        <h4 class="weather-temperature"> <%= day4TempMinEJS %>°C</h4>
+        <h4 class="weather-temperature"> <%= day4TempMaxEJS %>°C</h4>
+        <h5 class="weather-description"> <%= day4DescEJS %></h5>
       </div>
-      <div class="col-lg-2">
-        <h3> <%= day5EJS %> </h3>
+      <div class="mydivs col-md-4 col-lg-2">
+        <h3 class="weather-time"> <%= day5EJS %> </h3>
         <img src="<%= day5IconEJS %>" alt="">
-        <h4> <%= day5TempMinEJS %></h4>
-        <h4> <%= day5TempMaxEJS %></h4>
-        <h5> <%= day5DescEJS %></h5>
+        <h4 class="weather-temperature"> <%= day5TempMinEJS %>°C</h4>
+        <h4 class="weather-temperature"> <%= day5TempMaxEJS %>°C</h4>
+        <h5 class="weather-description"> <%= day5DescEJS %></h5>
       </div>
     </div>
     <hr>
-      <h2>Try out the app if you like what you see!</h2>
   </div>
 </section>
 
@@ -120,7 +137,7 @@
   <div class="container-fluid">
 <div class="row">
   <div class="phone-ad-left col-lg-6 col-md-12">
-    <h1 class="big-heading">Download WeatherNet today!</h1>
+    <h1 class="big-heading">Like what you see? Download fabWeather today!</h1>
     <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-apple"></i> Download</button>
     <button type="button" class="btn btn-dark btn-lg download-button-title"><i class="fab fa-google-play"></i> Download</button>
     <!-- https://fontawesome.com/ -->
