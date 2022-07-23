@@ -81,6 +81,7 @@ app.get('/', function (req, res) {
               // console.log(hourly)
               const dailyHours_timezone = []
               const dailyHours_desc = []
+              const dailyHours_temp = []
               const dailyHours_icon = []
 
 
@@ -100,6 +101,8 @@ app.get('/', function (req, res) {
                   dailyHours_timezone.push(hours_timezone + "am")
                 }
                 dailyHours_desc.push(hourly[h].weather[0].description);
+                const roundTemp = parseFloat(hourly[h].temp).toFixed(0);
+                dailyHours_temp.push(roundTemp);
                 const hourly_icon = hourly[h].weather[0].icon;
                 const hourly_iconImg = "http://openweathermap.org/img/wn/" + hourly_icon + "@2x.png";
                 dailyHours_icon.push(hourly_iconImg);
@@ -162,6 +165,15 @@ app.get('/', function (req, res) {
                 hour6DescEJS: dailyHours_desc[5],
                 hour7DescEJS: dailyHours_desc[6],
                 hour8DescEJS: dailyHours_desc[7],
+                // hourly temp 
+                hour1TempEJS: dailyHours_temp[0],
+                hour2TempEJS: dailyHours_temp[1],
+                hour3TempEJS: dailyHours_temp[2],
+                hour4TempEJS: dailyHours_temp[3],
+                hour5TempEJS: dailyHours_temp[4],
+                hour6TempEJS: dailyHours_temp[5],
+                hour7TempEJS: dailyHours_temp[6],
+                hour8TempEJS: dailyHours_temp[7],
                 // hourly weather icon
                 iconHour1EJS: dailyHours_icon[0],
                 iconHour2EJS: dailyHours_icon[1],
@@ -264,8 +276,9 @@ app.post('/', function (req, res) {
             const oneCallDailyData = await serverDelay(JSON.parse(chunks));
             const timezoneOffset = oneCallDailyData.timezone_offset
             const hourly = oneCallDailyData.hourly;
-            // console.log(hourly)
+            // console.log(hourly[0])
             const dailyHours_timezone = []
+            const dailyHours_temp = []
             const dailyHours_desc = []
             const dailyHours_icon = []
 
@@ -285,6 +298,8 @@ app.post('/', function (req, res) {
                 dailyHours_timezone.push(hours_timezone + "am")
               }
               dailyHours_desc.push(hourly[h].weather[0].description);
+              const roundTemp = parseFloat(hourly[h].temp).toFixed(0);
+              dailyHours_temp.push(roundTemp);
               const hourly_icon = hourly[h].weather[0].icon;
               const hourly_iconImg = "http://openweathermap.org/img/wn/" + hourly_icon + "@2x.png";
               dailyHours_icon.push(hourly_iconImg);
@@ -327,7 +342,7 @@ app.post('/', function (req, res) {
               iconTodayEJS: iconToday,
               weatherDescTodayEJS: weatherDescToday,
               error: null,
-              // hourly forecast (8hrs)
+              // hourly timezone (8hrs)
               hour1EJS: dailyHours_timezone[0],
               hour2EJS: dailyHours_timezone[1],
               hour3EJS: dailyHours_timezone[2],
@@ -345,6 +360,15 @@ app.post('/', function (req, res) {
               hour6DescEJS: dailyHours_desc[5],
               hour7DescEJS: dailyHours_desc[6],
               hour8DescEJS: dailyHours_desc[7],
+              // hourly temp 
+              hour1TempEJS: dailyHours_temp[0],
+              hour2TempEJS: dailyHours_temp[1],
+              hour3TempEJS: dailyHours_temp[2],
+              hour4TempEJS: dailyHours_temp[3],
+              hour5TempEJS: dailyHours_temp[4],
+              hour6TempEJS: dailyHours_temp[5],
+              hour7TempEJS: dailyHours_temp[6],
+              hour8TempEJS: dailyHours_temp[7],
               // hourly weather icon
               iconHour1EJS: dailyHours_icon[0],
               iconHour2EJS: dailyHours_icon[1],
