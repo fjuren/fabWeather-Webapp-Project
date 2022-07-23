@@ -6,7 +6,6 @@ const ejs = require("ejs");
 const bodyParser = require('body-parser');
 const app = express();
 
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -217,7 +216,7 @@ function serverDelay(x) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(x);
-    }, 700);
+    }, 1700);
   });
 }
 
