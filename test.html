@@ -1,0 +1,77 @@
+<!-- giphy API key VlHJLj7Pe6DnJ40cKzfr7E7CCvnLYLNu -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img src="#">
+
+  <!-- <script>
+    const img = document.querySelector('img');
+
+    fetch('https://api.giphy.com/v1/gifs/translate?api_key=VlHJLj7Pe6DnJ40cKzfr7E7CCvnLYLNu&s=cats')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(response) {
+        console.log(response.data.images.original.url);
+        img.src = response.data.images.original.url;
+    });
+
+  </script> -->
+
+<!-- Below: taking top but applying async & await -->
+
+    <!-- <script>
+    const img = document.querySelector('img');
+
+    const giphyURL = 'https://api.giphy.com/v1/gifs/translate?api_key=VlHJLj7Pe6DnJ40cKzfr7E7CCvnLYLNu&s=cats';
+    
+    async function callURL(url) {
+        const response = await fetch(url, {mode: 'cors'});
+        const json = await response.json();
+        const giphyURL = await json.data.images.original.url;
+        // img.src = giphyURL;
+        img.src = json.data.images.original.url;
+    };
+
+    callURL(giphyURL);
+
+// Below: taking the top two and adding error handling
+</script> -->
+
+<script>
+    const img = document.querySelector('img');
+
+    const giphyURL = 'https://api.giphy.com/v1/gifs/translate?api_key=VlHJLj7Pe6DnJ40cKzfr7E7CCvnLYLNu&s=cats';
+    
+    function delayGIF(x) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(x);
+            }, 5000);
+        });
+    }
+
+    async function callURL(url) {
+        try {
+            const response = await fetch(url, {mode: 'cors'});
+            const json = await response.json();
+            console.log("Code ran, just waiting for gif to complete")
+            const giphyURL = await delayGIF(json.data.images.original.url);
+            // img.src = giphyURL;
+            img.src = giphyURL;
+        } catch(err) {
+            console.log("noob mistake lmao: " + err + " LOL");
+        }
+    };
+
+    callURL(giphyURL);
+</script>
+
+
+</body>
+</html>
+
