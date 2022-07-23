@@ -4,8 +4,7 @@
 <section class="white-section" id="weather">
 
   <div class="form-group">
-    <form class="citySearch" action="/" method="post">
-      <progress id="spinner"/></progress>
+    <form class="citySearch" action="/" method="post" autocomplete="off">
       <div class="search-bar">
         <input id="cityInput" class="form-control-lg" type="text" name="cityName" placeholder="Enter City Name">
       </div>
@@ -14,10 +13,11 @@
       </div>
     </form>
   </div>
-
+  
+  <progress id="spinner"/></progress>
 
   <!-- <div id="spinner"></div> -->
-  <div class="">
+  <div id="title-top">
     <h1 class="big-heading"> <%= cityEJS %> </h1>
   </div>
 
