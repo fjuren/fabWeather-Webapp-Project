@@ -388,7 +388,7 @@ app.post('/', function (req, res) {
           });
         });
       } catch (err) {
-        console.log("Catch erros: " + err)
+        res.render('error.ejs')
       }
     });
   });
